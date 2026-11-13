@@ -2,8 +2,13 @@
  * Shared header and footer for public pages (landing, blog, contact, legal).
  * Include right after <body> so the header renders before the page content.
  * Pages set <body data-page="..."> to mark the active link.
+ *
+ * Mobile navigation lives in js/theme.js (bottom bar); there is no hamburger
+ * menu any more.
  */
 (function () {
+  'use strict';
+
   const page = document.body.dataset.page || '';
   const onHome = page === 'home';
   const user = window.CVM ? window.CVM.Auth.current() : null;
@@ -18,17 +23,11 @@
   ];
 
   const actions = user
-    ? '<a href="dashboard.html" class="btn btn-brand">Go to dashboard</a>'
+    ? '<a href="dashboard.html" class="btn btn-primary">Go to dashboard</a>'
     : `<a href="login.html" class="btn btn-ghost site-login">Log in</a>
-       <a href="register.html" class="btn btn-brand">Get started</a>`;
+       <a href="register.html" class="btn btn-primary">Get started</a>`;
 
   const navLinks = NAV.map((item) => `<a href="${item.href}"${item.pages && item.pages.includes(page) ? ' class="is-active" aria-current="page"' : ''}>${item.label}</a>`).join('');
-
-  // Below 960px the nav moves into a drop-down panel opened by the menu button
-  const menuActions = user
-    ? '<a href="dashboard.html" class="btn btn-brand btn-lg btn-block">Go to dashboard</a>'
-    : `<a href="register.html" class="btn btn-brand btn-lg btn-block">Get started — it’s free</a>
-       <a href="login.html" class="btn btn-secondary btn-lg btn-block">Log in</a>`;
 
   document.body.insertAdjacentHTML('afterbegin', `
     <header class="site-header" id="siteHeader">
@@ -36,17 +35,7 @@
         <a href="index.html" class="logo"><span class="logo-mark"><img src="images/logos/logo.webp" alt=""></span>H<span>Resume</span></a>
         <nav class="site-nav" aria-label="Main">${navLinks}</nav>
         <div class="site-actions">${actions}</div>
-        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="siteMenu" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
       </div>
-      <div class="site-menu" id="siteMenu">
-        <div class="container">
-          <nav class="site-menu-nav" aria-label="Main">${navLinks}</nav>
-          <div class="site-menu-actions">${menuActions}</div>
-        </div>
-      </div>
-      <div class="site-menu-backdrop" data-menu-close></div>
     </header>`);
 
   const startHref = user ? 'dashboard.html' : 'register.html';
@@ -93,35 +82,4 @@
   const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  /* ---------- Mobile menu ---------- */
-
-  const toggle = header.querySelector('.nav-toggle');
-  const menu = document.getElementById('siteMenu');
-  // Keeps the collapsed panel out of the tab order and away from screen readers
-  if ('inert' in menu) menu.inert = true;
-
-  function setMenu(open) {
-    header.classList.toggle('menu-open', open);
-    document.documentElement.classList.toggle('menu-lock', open);
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    if ('inert' in menu) menu.inert = !open;
-  }
-
-  toggle.addEventListener('click', () => setMenu(!header.classList.contains('menu-open')));
-
-  // Close after choosing a link (including same-page anchors) or tapping outside
-  header.addEventListener('click', (event) => {
-    if (event.target.closest('.site-menu a, [data-menu-close]')) setMenu(false);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
-      setMenu(false);
-      toggle.focus();
-    }
-  });
-
-  window.matchMedia('(min-width: 961px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 })();

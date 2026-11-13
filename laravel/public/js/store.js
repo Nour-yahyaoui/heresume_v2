@@ -164,7 +164,7 @@
         userId,
         title: title.trim() || 'Untitled resume',
         template: template || 'classic',
-        color: color || '#1f2937',
+        color: color || '#111111',
         data: data || emptyData(),
         pageBreaks: pageBreaks || [],
         createdAt: now,

@@ -19,7 +19,7 @@
       id: 'guest',
       title: 'Untitled Resume',
       template: new URLSearchParams(location.search).get('template') || 'classic',
-      color: new URLSearchParams(location.search).get('color') || '#3b82f6',
+      color: new URLSearchParams(location.search).get('color') || '#111111',
       data: window.CVM ? window.CVM.emptyData() : {}
     };
   }

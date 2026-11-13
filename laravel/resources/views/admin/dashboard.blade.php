@@ -5,7 +5,7 @@
 @section('content')
   <div style="margin-bottom: 24px;">
     <h1 style="font-size: 26px; margin: 0 0 6px; font-weight: 700;">Dashboard Overview</h1>
-    <p style="color: #64748b; margin: 0; font-size: 14.5px;">System statistics and recent platform activity.</p>
+    <p style="color: #727272; margin: 0; font-size: 14.5px;">System statistics and recent platform activity.</p>
   </div>
 
   <div class="stat-cards">
@@ -15,11 +15,11 @@
     </div>
     <div class="stat-card">
       <div class="stat-card-title">Pro Members</div>
-      <div class="stat-card-value" style="color: #d97706;">{{ number_format($stats['pro_users']) }}</div>
+      <div class="stat-card-value" style="color: #848484;">{{ number_format($stats['pro_users']) }}</div>
     </div>
     <div class="stat-card">
       <div class="stat-card-title">Resumes Created</div>
-      <div class="stat-card-value" style="color: #2563eb;">{{ number_format($stats['total_resumes']) }}</div>
+      <div class="stat-card-value" style="color: #606060;">{{ number_format($stats['total_resumes']) }}</div>
     </div>
     <div class="stat-card">
       <div class="stat-card-title">Templates</div>
@@ -55,7 +55,7 @@
             <tr>
               <td>
                 <div style="font-weight: 600;">{{ $u->name }}</div>
-                <div style="color: #64748b; font-size: 12.5px;">{{ $u->email }}</div>
+                <div style="color: #727272; font-size: 12.5px;">{{ $u->email }}</div>
               </td>
               <td>
                 @if($u->is_admin)
@@ -66,13 +66,13 @@
                   <span class="badge-pill badge-standard">Standard</span>
                 @endif
               </td>
-              <td style="color: #64748b; font-size: 13px;">
+              <td style="color: #727272; font-size: 13px;">
                 {{ $u->created_at->diffForHumans() }}
               </td>
             </tr>
           @empty
             <tr>
-              <td colspan="3" style="text-align: center; color: #94a3b8; padding: 24px;">No users yet.</td>
+              <td colspan="3" style="text-align: center; color: #a1a1a1; padding: 24px;">No users yet.</td>
             </tr>
           @endforelse
         </tbody>
@@ -83,7 +83,7 @@
     <div class="admin-card">
       <div class="admin-card-head">
         <h2>Latest Resumes</h2>
-        <span style="font-size: 13px; color: #64748b;">Recent activity</span>
+        <span style="font-size: 13px; color: #727272;">Recent activity</span>
       </div>
       <table class="admin-table">
         <thead>
@@ -98,7 +98,7 @@
             <tr>
               <td>
                 <div style="font-weight: 600;">{{ $r->title ?: $r->name }}</div>
-                <div style="color: #64748b; font-size: 12px;">{{ $r->updated_at->diffForHumans() }}</div>
+                <div style="color: #727272; font-size: 12px;">{{ $r->updated_at->diffForHumans() }}</div>
               </td>
               <td>
                 <div style="font-size: 13px;">{{ $r->user?->name ?? 'Guest/None' }}</div>
@@ -109,7 +109,7 @@
             </tr>
           @empty
             <tr>
-              <td colspan="3" style="text-align: center; color: #94a3b8; padding: 24px;">No resumes yet.</td>
+              <td colspan="3" style="text-align: center; color: #a1a1a1; padding: 24px;">No resumes yet.</td>
             </tr>
           @endforelse
         </tbody>

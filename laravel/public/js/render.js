@@ -42,7 +42,7 @@
     { id: 'quebec', name: 'Quebec', layout: 'two', photo: true, description: 'Light grey sidebar with dark icon badges, and dual-column role-and-company entries.', color: '#2d3748' },
   ];
 
-  const COLORS = ['#1f2937', '#0f3a5c', '#2f54eb', '#0f766e', '#9f1239', '#b45309', '#6d28d9'];
+  const COLORS = ['#111111', '#2b2b2b', '#444444', '#5c5c5c', '#767676', '#8f8f8f', '#a6a6a6'];
 
   /* Color a template starts with when none is chosen. */
   function defaultColor(template) {

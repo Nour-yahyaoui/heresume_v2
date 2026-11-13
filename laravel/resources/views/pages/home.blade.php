@@ -15,7 +15,7 @@
       <div class="container hero-inner">
         <div class="hero-copy">
           <p class="eyebrow eyebrow--pill" data-reveal><span class="pulse-dot"></span>Free resume builder</p>
-          <h1 data-reveal>Build a resume that gets you <span class="text-gradient">noticed.</span></h1>
+          <h1 data-reveal>Build a resume that gets you <span class="hero-emphasis">noticed.</span></h1>
           <p class="lead" data-reveal>Fill in your details, pick a template and download a polished PDF. No design skills needed.</p>
           <div class="hero-cta" data-reveal>
             <a href="{{ auth()->check() ? route('resumes.index') : route('register') }}" class="btn btn-primary btn-lg btn-shine" data-cta>
@@ -33,7 +33,7 @@
         <div class="hero-visual" data-reveal>
           <div class="hero-stack">
             <div class="hero-back" data-thumb="executive" aria-hidden="true"></div>
-            <div class="hero-front" id="heroThumb" data-thumb="modern" data-color="#2f54eb"></div>
+            <div class="hero-front" id="heroThumb" data-thumb="modern" data-color="#2b2b2b"></div>
 
             <div class="float-chip float-chip--pdf">
               <span class="chip-icon chip-icon--green">
@@ -122,42 +122,42 @@
         </div>
         <div class="features">
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#2f54eb">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Live preview</h3>
             <p class="muted">See every change on the page as you type. What you see is what you download.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#a43ad8">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5" fill="currentColor"/><circle cx="17.5" cy="10.5" r="1.5" fill="currentColor"/><circle cx="8.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="6.5" cy="12.5" r="1.5" fill="currentColor"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A5.6 5.6 0 0 0 22 9.8C22 5.5 17.5 2 12 2Z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Templates &amp; colors</h3>
             <p class="muted">Try a new layout or accent color in one click. Your content reflows automatically.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#0f766e">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Multiple versions</h3>
             <p class="muted">Duplicate a resume and tailor it for each role you apply to.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#b45309">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V7a4 4 0 0 1 8 0v4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Private by default</h3>
             <p class="muted">Your resumes are stored safely and securely. Full control over your data.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#9f1239">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 21a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
             </span>
             <h3>Photo support</h3>
             <p class="muted">Add a profile photo to templates designed to show one.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#1f2937">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
             </span>
             <h3>Print-ready PDF</h3>
@@ -230,7 +230,7 @@
           <dialog id="reviewDialog" style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; max-width: 480px; width: 90%; margin: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
               <h3 style="margin: 0; font-size: 18px;">Share your experience</h3>
-              <button type="button" onclick="document.getElementById('reviewDialog').close()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #6b7280;">&times;</button>
+              <button type="button" onclick="document.getElementById('reviewDialog').close()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #727272;">&times;</button>
             </div>
             <form action="{{ route('reviews.store') }}" method="POST">
               @csrf

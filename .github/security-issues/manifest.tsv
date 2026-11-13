@@ -1,0 +1,18 @@
+# id	title	severity
+SEC-01	[Security] Static frontend authentication is entirely client-side and forgeable	High
+SEC-02	[Security] Passwords hashed with unsalted SHA-256 in localStorage; data survives logout	High
+SEC-03	[Security] No rate limiting on login or public forms; remember-me is on by default	Medium
+SEC-04	[Security] Resume ownership check is skipped when user_id is null (IDOR)	High
+SEC-05	[Security] PUT /resumes/{id} accepts unvalidated JSON, colour and photo URLs	High
+SEC-06	[Security] Accent colour interpolated unescaped into editor HTML attributes (stored XSS)	High
+SEC-07	[Security] CSS injection via unvalidated colour in Blade inline styles and the CV renderer	Medium
+SEC-08	[Security] Blog body rendered with {!! !!} and no sanitisation (stored XSS)	Medium
+SEC-09	[Security] Image uploads accept SVG and are served publicly without access control	Medium
+SEC-10	[Security] OAuth accounts linked by email without proof of ownership; tokens stored in plaintext	High
+SEC-11	[Security] Weak password policy (minimum 6 characters, no breach check)	Medium
+SEC-12	[Security] Unsafe production defaults in .env.example (debug on, unencrypted non-secure sessions)	Medium
+SEC-13	[Security] Seeder creates a known demo account with a hardcoded password	Medium
+SEC-14	[Security] No CSP, SRI or security headers; third-party script and font loaded unchecked	Medium
+SEC-15	[Security] GET /resumes/create mutates state; guest editor is unauthenticated and unthrottled	Medium
+SEC-16	[Security] target="_blank" links missing rel="noopener noreferrer"	Low
+SEC-17	[Security] Account deletion leaves resumes, photos and OAuth tokens behind	Low

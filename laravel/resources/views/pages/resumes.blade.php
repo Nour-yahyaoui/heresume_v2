@@ -37,7 +37,7 @@
                 <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 6px;">
                   <a href="{{ route('resumes.edit', $r) }}" style="color: inherit; text-decoration: none;">{{ $r->title }}</a>
                 </h3>
-                <div style="display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #6b7280; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #727272; margin-bottom: 12px;">
                   <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: {{ $r->color }};"></span>
                   <span style="text-transform: capitalize;">{{ $r->template }}</span>
                   <span>·</span>
@@ -57,7 +57,7 @@
                 <form action="{{ route('resumes.destroy', $r) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this resume?');" style="margin: 0;">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-ghost" style="color: #ef4444;" title="Delete" aria-label="Delete">
+                  <button type="submit" class="btn btn-sm btn-ghost" style="color: #686868;" title="Delete" aria-label="Delete">
                     <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5z" clip-rule="evenodd"/></svg>
                   </button>
                 </form>
@@ -73,7 +73,7 @@
   <dialog id="newResumeModal" class="modal" style="border: none; border-radius: 16px; padding: 0; max-width: 680px; width: 90%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
     <div style="padding: 24px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
       <h2 style="font-size: 20px; margin: 0;">Create new resume</h2>
-      <button type="button" id="closeNewResumeModal" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #6b7280;">&times;</button>
+      <button type="button" id="closeNewResumeModal" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #727272;">&times;</button>
     </div>
     <form action="{{ route('resumes.create') }}" method="GET" style="padding: 24px;">
       <div style="margin-bottom: 20px;">
@@ -100,7 +100,7 @@
       // Mount live thumbnails for each resume card
       document.querySelectorAll('.resume-card-thumb').forEach((el) => {
         const template = el.dataset.template || 'classic';
-        const color = el.dataset.color || '#3b82f6';
+        const color = el.dataset.color || '#7b7b7b';
         let resumeData = null;
         try {
           resumeData = JSON.parse(el.dataset.resumeJson);

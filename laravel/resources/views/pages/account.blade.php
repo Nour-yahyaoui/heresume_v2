@@ -81,14 +81,14 @@
       </section>
 
       <!-- Delete Account Card -->
-      <section class="card settings-card" style="background: #ffffff; border: 1px solid #fee2e2; border-radius: 12px; padding: 28px;">
-        <h2 style="font-size: 20px; color: #dc2626; margin: 0 0 6px;">Danger Zone</h2>
+      <section class="card settings-card" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px;">
+        <h2 style="font-size: 20px; color: #4d4d4d; margin: 0 0 6px;">Danger Zone</h2>
         <p class="muted" style="margin: 0 0 20px;">Permanently delete your account and all associated resumes.</p>
         
         <form action="{{ route('account.destroy') }}" method="POST" onsubmit="return confirm('Are you absolutely sure? This will delete all your resumes permanently.');">
           @csrf
           @method('DELETE')
-          <button type="submit" class="btn btn-secondary" style="color: #dc2626; border-color: #fecaca;">Delete my account</button>
+          <button type="submit" class="btn btn-secondary" style="color: #4d4d4d; border-color: #d5d5d5;">Delete my account</button>
         </form>
       </section>
     </div>

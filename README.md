@@ -27,15 +27,22 @@ The Laravel application serves its own assets from `laravel/public/`; it does no
 heresume_v2/
 ├── index.html, editor.html, ...   # Static frontend pages
 ├── css/
-│   ├── style.css                 # Site, editor, and print styles
+│   ├── style.css                 # Site, editor, and print layout
+│   ├── theme.css                 # Monochrome design system (loaded last)
 │   └── resume.css                # Resume template styles
+├── fonts/                        # Self-hosted Geist variable fonts (OFL 1.1)
 ├── js/
 │   ├── store.js                  # Browser-local accounts and resumes
 │   ├── editor.js                 # Editor interactions and autosave
 │   ├── render.js                 # Template registry, rendering, pagination
 │   ├── auth.js                   # Static login and registration flows
+│   ├── theme.js                  # Mobile bottom navigation
 │   └── ...                       # Dashboard, gallery, blog, and site scripts
 ├── images/                       # Logos, template images, and sample assets
+├── tools/preview_server.py        # Local static-UI preview server
+├── SECURITY_REVIEW.md             # Security audit and tracked findings
+├── .github/security-issues/       # One issue draft per security finding
+├── scripts/                      # Issue-filing helper
 └── laravel/
     ├── app/                      # Controllers, models, middleware, services
     ├── bootstrap/                # Application bootstrap and middleware aliases
@@ -71,13 +78,14 @@ Choose one of the following setups.
 
 ### Option 1: Run the static frontend
 
-No Composer or npm installation is required. With Python 3 installed, run this from the repository root:
+No Composer or npm installation is required. A bundled preview server serves only the browser-facing files (HTML pages, `css/`, `js/`, `images/`, `fonts/`) and blocks the Laravel app, docs, and dotfiles:
 
 ```bash
-python3 -m http.server 8765
+python3 tools/preview_server.py            # http://localhost:3000
+PORT=8080 python3 tools/preview_server.py  # pick another port
 ```
 
-Open **http://localhost:8765**. Any other static HTTP server can be used instead.
+Any plain static server works too (for example `python3 -m http.server 8765`, then open **http://localhost:8765**). The UI uses a monochrome, Vercel/Geist-inspired theme: self-hosted Geist fonts, flat black/white buttons, a custom display face for the hero headline, and a bottom navigation bar on mobile instead of a hamburger menu.
 
 The static version stores accounts, sessions, and resumes under the `cvm_users`, `cvm_session`, and `cvm_resumes` localStorage keys. Data is specific to the browser and origin; clearing site data removes it. Its client-side authentication is a frontend prototype, not production access control.
 
@@ -213,6 +221,12 @@ vendor/bin/pint --test
 ```
 
 The test configuration uses an in-memory SQLite database. The repository currently contains basic example tests, not comprehensive coverage of the resume or authentication workflows.
+
+## Security review
+
+A manual audit of both front ends is documented in **[SECURITY_REVIEW.md](SECURITY_REVIEW.md)**: 17 findings (6 High, 9 Medium, 2 Low) covering authentication, authorisation, input validation, output encoding, uploads, OAuth, headers and data retention. Each finding has a ready-to-file draft in `.github/security-issues/`; `scripts/create-security-issues.sh` opens them as GitHub issues once Issues are enabled for the repository.
+
+The static build is a **demo**: its accounts, sessions, and resumes live in `localStorage`, and its client-side authentication is not production access control. Do not enter real personal data into it. Use the Laravel application for real accounts.
 
 ## Deployment checklist
 

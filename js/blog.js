@@ -13,7 +13,7 @@
       date: '2026-09-22',
       readTime: 5,
       image: '', // e.g. 'images/blog/resume-summary.jpg'
-      cover: { template: 'classic', color: '#2f54eb' },
+      cover: { template: 'classic', color: '#111111' },
       excerpt: 'Recruiters spend seconds on the top of your resume. A focused, specific summary makes those seconds count.',
       body: `
         <p>The summary is the first thing a recruiter reads, and often the only thing they read before deciding whether to keep going. Most summaries waste that moment with vague claims. Here is how to write one that works.</p>
@@ -50,7 +50,7 @@
       date: '2026-09-10',
       readTime: 4,
       image: '', // e.g. 'images/blog/results-not-responsibilities.jpg'
-      cover: { template: 'executive', color: '#0f3a5c' },
+      cover: { template: 'executive', color: '#3a3a3a' },
       excerpt: 'Anyone can list what their job was. Strong resumes show what changed because you were there.',
       body: `
         <p>Most experience sections read like job descriptions: “Responsible for social media,” “Handled customer inquiries.” They tell the reader what you were supposed to do, not how well you did it.</p>
@@ -80,7 +80,7 @@
       date: '2026-08-27',
       readTime: 6,
       image: '', // e.g. 'images/blog/ats-friendly-resume.jpg'
-      cover: { template: 'minimal', color: '#0f766e' },
+      cover: { template: 'minimal', color: '#5c5c5c' },
       excerpt: 'Many companies use applicant tracking systems to sort applications. A few simple habits help your resume get through.',
       body: `
         <p>An applicant tracking system (ATS) stores and searches applications for recruiters. Many companies use one, so your resume is often read by software before it reaches a person. The good news: what works for an ATS is mostly what works for human readers too.</p>
@@ -110,7 +110,7 @@
       date: '2026-08-12',
       readTime: 3,
       image: '', // e.g. 'images/blog/resume-length.jpg'
-      cover: { template: 'fresh', color: '#6d28d9' },
+      cover: { template: 'fresh', color: '#767676' },
       excerpt: 'There is no single rule, but there is a simple way to decide what belongs on your resume.',
       body: `
         <p>“Keep it to one page” is common advice, but it is not a law. The right length depends on how much relevant experience you have.</p>
@@ -150,7 +150,7 @@
     if (post.image) {
       return `<div class="post-cover ${className}"><img src="${esc(post.image)}" alt="" loading="lazy"></div>`;
     }
-    const { template, color } = post.cover || { template: 'classic', color: '#2f54eb' };
+    const { template, color } = post.cover || { template: 'classic', color: '#111111' };
     return `
       <div class="post-cover post-cover--art ${className}" style="--cover:${esc(color)}">
         <div data-cover-thumb data-template="${esc(template)}" data-color="${esc(color)}"></div>

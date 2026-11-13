@@ -4,23 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="icon" type="image/svg+xml" href="{{ asset('images/logos/favicon-mono.svg') }}">
   <link rel="icon" href="{{ asset('images/logos/favicon.ico') }}" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/logos/favicon-32x32.png') }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/logos/favicon-16x16.png') }}">
   <link rel="apple-touch-icon" href="{{ asset('images/logos/apple-touch-icon.png') }}">
   <link rel="manifest" href="{{ asset('site.webmanifest') }}">
   <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
   <title>@yield('title', 'HResume — Free Professional Resume Builder')</title>
   <meta name="description" content="@yield('meta_description', 'Build a professional resume in minutes. Pick from 33 polished templates, customise with live preview, and download as PDF.')">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="{{ asset('fonts/geist-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
   
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/resume.css?v=canadian') }}">
 
   @stack('styles')
+  <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+  <script>window.HRESUME_AUTHENTICATED = @json(auth()->check());</script>
+  <script src="{{ asset('js/theme.js') }}" defer></script>
 </head>
 <body data-page="@yield('page_name', 'home')">
 
@@ -72,7 +75,7 @@
         <div class="site-actions">
           @auth
             @if(auth()->user()->isAdmin())
-              <a href="{{ route('admin.dashboard') }}" class="btn btn-ghost" style="color: #2563eb; font-weight: 600;">Admin</a>
+              <a href="{{ route('admin.dashboard') }}" class="btn btn-ghost" style="color: #606060; font-weight: 600;">Admin</a>
             @endif
             <a href="{{ route('resumes.index') }}" class="btn btn-brand">Dashboard</a>
           @else
@@ -109,7 +112,7 @@
 
   @if(session('success'))
     <div class="container" style="margin-top: 18px;">
-      <div class="alert alert-success" style="background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 12px 16px; border-radius: 8px; font-size: 14px;">
+      <div class="alert alert-success" style="background: #f9f9f9; border: 1px solid #e0e0e0; color: #4a4a4a; padding: 12px 16px; border-radius: 8px; font-size: 14px;">
         {{ session('success') }}
       </div>
     </div>
@@ -117,7 +120,7 @@
 
   @if(session('error') || $errors->any())
     <div class="container" style="margin-top: 18px;">
-      <div class="alert alert-danger" style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 12px 16px; border-radius: 8px; font-size: 14px;">
+      <div class="alert alert-danger" style="background: #f5f5f5; border: 1px solid #d5d5d5; color: #363636; padding: 12px 16px; border-radius: 8px; font-size: 14px;">
         {{ session('error') ?? $errors->first() }}
       </div>
     </div>
@@ -133,7 +136,7 @@
           <p>Create a professional resume in minutes and download it as a PDF.</p>
           <form action="{{ route('newsletter.subscribe') }}" method="POST" style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
             @csrf
-            <input type="email" name="email" placeholder="Get career advice & updates..." required style="padding: 7px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; background: #ffffff; color: #111827; flex: 1; min-width: 180px;">
+            <input type="email" name="email" placeholder="Get career advice & updates..." required style="padding: 7px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; background: #ffffff; color: #181818; flex: 1; min-width: 180px;">
             <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
           </form>
         </div>

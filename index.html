@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="images/logos/favicon-mono.svg">
   <link rel="icon" href="images/logos/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="images/logos/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/logos/favicon-16x16.png">
   <link rel="apple-touch-icon" href="images/logos/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
   <title>HResume — Build a professional resume in minutes</title>
   <meta name="description" content="Create a professional resume in minutes. Fill in your details, choose a template and download a PDF.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/resume.css">
   <script src="js/store.js"></script>
   <script src="js/motion.js"></script>
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="js/theme.js" defer></script>
 </head>
 <body data-page="home">
   <script src="js/site.js"></script>
@@ -33,7 +35,7 @@
       <div class="container hero-inner">
         <div class="hero-copy">
           <p class="eyebrow eyebrow--pill" data-reveal><span class="pulse-dot"></span>Free resume builder</p>
-          <h1 data-reveal>Build a resume that gets you <span class="text-gradient">noticed.</span></h1>
+          <h1 data-reveal>Build a resume that gets you <span class="hero-emphasis">noticed.</span></h1>
           <p class="lead" data-reveal>Fill in your details, pick a template and download a polished PDF. No design skills needed.</p>
           <div class="hero-cta" data-reveal>
             <a href="register.html" class="btn btn-primary btn-lg btn-shine" data-cta>
@@ -51,7 +53,7 @@
         <div class="hero-visual" data-reveal>
           <div class="hero-stack">
             <div class="hero-back" data-thumb="executive" aria-hidden="true"></div>
-            <div class="hero-front" id="heroThumb" data-thumb="modern" data-color="#2f54eb"></div>
+            <div class="hero-front" id="heroThumb" data-thumb="modern" data-color="#2b2b2b"></div>
 
             <div class="float-chip float-chip--pdf">
               <span class="chip-icon chip-icon--green">
@@ -140,42 +142,42 @@
         </div>
         <div class="features">
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#2f54eb">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Live preview</h3>
             <p class="muted">See every change on the page as you type. What you see is what you download.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#a43ad8">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5" fill="currentColor"/><circle cx="17.5" cy="10.5" r="1.5" fill="currentColor"/><circle cx="8.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="6.5" cy="12.5" r="1.5" fill="currentColor"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A5.6 5.6 0 0 0 22 9.8C22 5.5 17.5 2 12 2Z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Templates &amp; colors</h3>
             <p class="muted">Try a new layout or accent color in one click. Your content reflows automatically.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#0f766e">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Multiple versions</h3>
             <p class="muted">Duplicate a resume and tailor it for each role you apply to.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#b45309">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V7a4 4 0 0 1 8 0v4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             </span>
             <h3>Private by default</h3>
             <p class="muted">Your resumes are stored in this browser. Nothing is uploaded to a server.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#9f1239">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 21a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
             </span>
             <h3>Photo support</h3>
             <p class="muted">Add a profile photo to templates designed to show one.</p>
           </div>
           <div class="feature" data-reveal>
-            <span class="feature-icon" style="--c:#1f2937">
+            <span class="feature-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
             </span>
             <h3>Print-ready PDF</h3>

@@ -20,7 +20,7 @@
           @forelse($posts as $post)
             <article class="post-card" data-reveal>
               <a href="{{ route('blog.show', $post->slug) }}" class="post-thumb" style="background: #f3f4f6; position: relative; display: block; overflow: hidden; height: 180px;">
-                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #ffffff; padding: 20px;">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #fafafa; color: #000000; padding: 20px;">
                   <span style="font-size: 15px; font-weight: 600; text-align: center;">{{ $post->title }}</span>
                 </div>
               </a>
@@ -32,7 +32,7 @@
                 <a href="{{ route('blog.show', $post->slug) }}" style="color: inherit; text-decoration: none;">{{ $post->title }}</a>
               </h2>
               <p class="muted" style="font-size: 14px; margin: 0 0 16px;">{{ $post->excerpt }}</p>
-              <a href="{{ route('blog.show', $post->slug) }}" class="read-more" style="font-size: 13.5px; font-weight: 600; color: #2f54eb;">Read article &rarr;</a>
+              <a href="{{ route('blog.show', $post->slug) }}" class="read-more" style="font-size: 13.5px; font-weight: 600; color: #575757;">Read article &rarr;</a>
             </article>
           @empty
             <p class="muted">No blog posts found.</p>

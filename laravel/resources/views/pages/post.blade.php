@@ -16,10 +16,10 @@
             <span class="muted">{{ $post->published_at ? $post->published_at->format('M d, Y') : date('M d, Y') }}</span>
           </div>
           <h1 style="font-size: 36px; line-height: 1.2; margin-bottom: 16px;">{{ $post->title }}</h1>
-          <p class="lead" style="font-size: 18px; color: #4b5563;">{{ $post->excerpt }}</p>
+          <p class="lead" style="font-size: 18px; color: #545454;">{{ $post->excerpt }}</p>
         </header>
 
-        <div class="article-body" style="font-size: 16px; line-height: 1.7; color: #1f2937;">
+        <div class="article-body" style="font-size: 16px; line-height: 1.7; color: #282828;">
           {!! $post->content !!}
         </div>
       </article>
@@ -38,7 +38,7 @@
                   <a href="{{ route('blog.show', $r->slug) }}" style="color: inherit; text-decoration: none;">{{ $r->title }}</a>
                 </h3>
                 <p class="muted" style="font-size: 13.5px; margin: 0 0 10px;">{{ Str::limit($r->excerpt, 90) }}</p>
-                <a href="{{ route('blog.show', $r->slug) }}" style="font-size: 13px; font-weight: 600; color: #2f54eb;">Read &rarr;</a>
+                <a href="{{ route('blog.show', $r->slug) }}" style="font-size: 13px; font-weight: 600; color: #575757;">Read &rarr;</a>
               </article>
             @endforeach
           </div>
